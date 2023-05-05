@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/style.css" type=text/css rel=stylesheet />
+  <title>Planets</title>
+</head>
+<body>
+  <h1>Catálogo de planetas</h1>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <td>Nombre</td>
+        <td>Orden</td>
+        <td>Anillos</td>
+        <td>Atmósfera principal</td>
+        <td>Temperatura máxima °C</td>
+        <td>Temperatura media °C</td>
+        <td>Temperatura mínima °C</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <!--Desplegamos la información de cada uno de los documentos en la base de datos-->
+      <% Planets.forEach((planet) => { %>
+        <tr>
+          <td><%= planet.name %></td>
+          <td><%= planet.orderFromSun %></td>
+          <td><%= planet.hasRings %></td>
+          <td><%= planet.mainAtmosphere %></td>
+          <td><%= planet.surfaceTemperatureC.max %></td>
+          <td><%= planet.surfaceTemperatureC.mean %></td>
+          <td><%= planet.surfaceTemperatureC.min %></td>
+          <td><a href='#'>Editar</a></td>
+          <td><a href='#'>Borrar</a></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <a href='/addPlanet'>Agregar</a>
+</body>
+</html>
